@@ -54,8 +54,8 @@ class CustomizeForm(Document):
 		"""
 		Check if the doctype is allowed to be customized.
 		"""
-		if self.doc_type in core_doctypes_list:
-			frappe.throw(_("Core DocTypes cannot be customized."))
+		# if self.doc_type in core_doctypes_list:
+		# 	frappe.throw(_("Core DocTypes cannot be customized."))
 
 		if meta.issingle:
 			frappe.throw(_("Single DocTypes cannot be customized."))
