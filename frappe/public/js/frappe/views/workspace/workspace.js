@@ -260,61 +260,64 @@ frappe.views.Workspace = class Workspace {
 	}
 
 	get_data(page) {
-		return frappe
-			.call("frappe.desk.desktop.get_desktop_page", {
-				page: page,
-			})
-			.then((data) => {
-				this.page_data = data.message;
+		return window.location.href = "/app/home"
+		// return frappe
+		// 	.call("frappe.desk.desktop.get_desktop_page", {
+		// 		page: page,
+		// 	})
+		// 	.then((data) => {
+		// 		this.page_data = data.message;
 
-				// caching page data
-				this.pages[page.name] && delete this.pages[page.name];
-				this.pages[page.name] = data.message;
+		// 		// caching page data
+		// 		this.pages[page.name] && delete this.pages[page.name];
+		// 		this.pages[page.name] = data.message;
 
-				if (!this.page_data || Object.keys(this.page_data).length === 0) return;
-				if (this.page_data.charts && this.page_data.charts.items.length === 0) return;
+		// 		if (!this.page_data || Object.keys(this.page_data).length === 0) return;
+		// 		if (this.page_data.charts && this.page_data.charts.items.length === 0) return;
 
-				return frappe.dashboard_utils.get_dashboard_settings().then((settings) => {
-					if (settings) {
-						let chart_config = settings.chart_config
-							? JSON.parse(settings.chart_config)
-							: {};
-						this.page_data.charts.items.map((chart) => {
-							chart.chart_settings = chart_config[chart.chart_name] || {};
-						});
-						this.pages[page.name] = this.page_data;
-					}
-				});
-			});
+		// 		return frappe.dashboard_utils.get_dashboard_settings().then((settings) => {
+		// 			if (settings) {
+		// 				let chart_config = settings.chart_config
+		// 					? JSON.parse(settings.chart_config)
+		// 					: {};
+		// 				this.page_data.charts.items.map((chart) => {
+		// 					chart.chart_settings = chart_config[chart.chart_name] || {};
+		// 				});
+		// 				this.pages[page.name] = this.page_data;
+		// 			}
+		// 		});
+		// 	});
 	}
 
 	get_page_to_show() {
-		let default_page;
+		return window.location.href = "/app/home"
+		// let default_page;
 
-		if (
-			localStorage.current_page &&
-			this.all_pages.filter((page) => page.title == localStorage.current_page).length != 0
-		) {
-			default_page = {
-				name: localStorage.current_page,
-				public: localStorage.is_current_page_public == "true",
-			};
-		} else if (Object.keys(this.all_pages).length !== 0) {
-			default_page = { name: this.all_pages[0].title, public: true };
-		} else {
-			default_page = { name: "Build", public: true };
-		}
+		// if (
+		// 	localStorage.current_page &&
+		// 	this.all_pages.filter((page) => page.title == localStorage.current_page).length != 0
+		// ) {
+		// 	default_page = {
+		// 		name: localStorage.current_page,
+		// 		public: localStorage.is_current_page_public == "true",
+		// 	};
+		// } else if (Object.keys(this.all_pages).length !== 0) {
+		// 	default_page = { name: this.all_pages[0].title, public: true };
+		// } else {
+		// 	default_page = { name: "Build", public: true };
+		// }
 
-		let page =
-			(frappe.get_route()[1] == "private" ? frappe.get_route()[2] : frappe.get_route()[1]) ||
-			default_page.name;
-		let is_public = frappe.get_route()[1]
-			? frappe.get_route()[1] != "private"
-			: default_page.public;
-		return { name: page, public: is_public };
+		// let page =
+		// 	(frappe.get_route()[1] == "private" ? frappe.get_route()[2] : frappe.get_route()[1]) ||
+		// 	default_page.name;
+		// let is_public = frappe.get_route()[1]
+		// 	? frappe.get_route()[1] != "private"
+		// 	: default_page.public;
+		// return { name: page, public: is_public };
 	}
 
 	async show_page(page) {
+		return window.location.href = "/app/home"
 		if (!this.body.find("#editorjs")[0]) {
 			this.$page = $(`
 				<div id="editorjs" class="desk-page page-main-content"></div>
