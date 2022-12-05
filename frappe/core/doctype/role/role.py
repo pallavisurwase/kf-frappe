@@ -57,11 +57,12 @@ class Role(Document):
 			return
 		if self.has_value_changed("desk_access"):
 			for user_name in get_users(self.name):
-				user = frappe.get_doc("User", user_name)
-				user_type = user.user_type
-				user.set_system_user()
-				if user_type != user.user_type:
-					user.save()
+				if frappe.db.get_value("User", {'name':user_name}, 'name'):
+					user = frappe.get_doc("User", user_name)
+					user_type = user.user_type
+					user.set_system_user()
+					if user_type != user.user_type:
+						user.save()
 
 
 def get_info_based_on_role(role, field="email"):
