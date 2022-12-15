@@ -357,45 +357,45 @@ frappe.ui.form.Toolbar = class Toolbar {
 		}
 
 		// go to field modal
-		this.page.add_menu_item(
-			__("Jump to field"),
-			function () {
-				me.show_jump_to_field_dialog();
-			},
-			true,
-			"Ctrl+J"
-		);
+		// this.page.add_menu_item(
+		// 	__("Jump to field"),
+		// 	function () {
+		// 		me.show_jump_to_field_dialog();
+		// 	},
+		// 	true,
+		// 	"Ctrl+J"
+		// );
 
 		// Linked With
-		if (!me.frm.meta.issingle) {
-			this.page.add_menu_item(
-				__("Links"),
-				function () {
-					me.show_linked_with();
-				},
-				true
-			);
-		}
+		// if (!me.frm.meta.issingle) {
+		// 	this.page.add_menu_item(
+		// 		__("Links"),
+		// 		function () {
+		// 			me.show_linked_with();
+		// 		},
+		// 		true
+		// 	);
+		// }
 
 		// duplicate
-		if (in_list(frappe.boot.user.can_create, me.frm.doctype) && !me.frm.meta.allow_copy) {
-			this.page.add_menu_item(
-				__("Duplicate"),
-				function () {
-					me.frm.copy_doc();
-				},
-				true
-			);
-		}
+		// if (in_list(frappe.boot.user.can_create, me.frm.doctype) && !me.frm.meta.allow_copy) {
+		// 	this.page.add_menu_item(
+		// 		__("Duplicate"),
+		// 		function () {
+		// 			me.frm.copy_doc();
+		// 		},
+		// 		true
+		// 	);
+		// }
 
 		// copy doc to clipboard
-		this.page.add_menu_item(
-			__("Copy to Clipboard"),
-			function () {
-				frappe.utils.copy_to_clipboard(JSON.stringify(me.frm.doc));
-			},
-			true
-		);
+		// this.page.add_menu_item(
+		// 	__("Copy to Clipboard"),
+		// 	function () {
+		// 		frappe.utils.copy_to_clipboard(JSON.stringify(me.frm.doc));
+		// 	},
+		// 	true
+		// );
 
 		// rename
 		if (this.can_rename()) {

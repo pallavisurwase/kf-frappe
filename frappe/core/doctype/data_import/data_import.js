@@ -52,6 +52,7 @@ frappe.ui.form.on("Data Import", {
 		});
 
 		frm.set_query("reference_doctype", () => {
+			console.log(frappe.boot.user.can_import)
 			return {
 				filters: {
 					name: ["in", frappe.boot.user.can_import],
