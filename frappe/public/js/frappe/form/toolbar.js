@@ -286,22 +286,22 @@ frappe.ui.form.Toolbar = class Toolbar {
 	make_navigation() {
 		// Navigate
 		if (!this.frm.is_new() && !this.frm.meta.issingle) {
-			this.page.add_action_icon(
-				"left",
-				() => {
-					this.frm.navigate_records(1);
-				},
-				"prev-doc",
-				__("Previous Document")
-			);
-			this.page.add_action_icon(
-				"right",
-				() => {
-					this.frm.navigate_records(0);
-				},
-				"next-doc",
-				__("Next Document")
-			);
+			// this.page.add_action_icon(
+			// 	"left",
+			// 	() => {
+			// 		this.frm.navigate_records(1);
+			// 	},
+			// 	"prev-doc",
+			// 	__("Previous Document")
+			// );
+			// this.page.add_action_icon(
+			// 	"right",
+			// 	() => {
+			// 		this.frm.navigate_records(0);
+			// 	},
+			// 	"next-doc",
+			// 	__("Next Document")
+			// );
 		}
 	}
 
