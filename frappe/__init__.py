@@ -590,7 +590,7 @@ def sendmail(
 	subject="No Subject",
 	message="No Message",
 	as_markdown=False,
-	delayed=True,
+	delayed=False,
 	reference_doctype=None,
 	reference_name=None,
 	unsubscribe_method=None,
